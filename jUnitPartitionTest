@@ -1,0 +1,33 @@
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+
+class jUnitPartitionTest {
+	
+	@Test
+	void test() {
+		
+		ArrayList<Integer> testList = new ArrayList<Integer>();
+		Integer E = 3;
+		testList.add(5);
+		testList.add(4);
+		testList.add(2);
+		testList.add(1);
+		
+		ArrayList<Integer> test = Assignment_2.partition(testList, E);
+		
+		int i0 = test.get(0);
+		int i1 = test.get(1);
+		int i2 = test.get(2);
+		int i3 = test.get(3);
+		
+		assertEquals(i0, 2);
+		assertEquals(i1, 1);
+		assertEquals(i2, 5);
+		assertEquals(i3, 4);
+		
+	}
+
+}
