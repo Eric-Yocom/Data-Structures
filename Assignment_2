@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+
+public class Assignment_2 {
+
+	public static ArrayList<Integer> partition (ArrayList<Integer> list, int E){
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		
+		//iterate through list and add low nums to temp
+		for (int i = 0; i < list.size(); i++) {
+			int thisElement = list.get(i);
+			int pivot = E;
+			
+			
+			if(thisElement < pivot) {
+				temp.add(thisElement);
+			}//end of if
+		}//end of for
+		
+		
+		//iterate through list and add high nums to temp
+		for (int i = 0; i < list.size(); i++) {
+			int thisElement = list.get(i);
+			int pivot = E;
+			
+			
+			if(thisElement > pivot) {
+				temp.add(thisElement);
+			}//end of if
+		}//end of for
+		
+		
+		//clear list and add each element from temp
+		list.clear();
+		for (int i = 0; i < temp.size(); i++) {
+			int thisElement = temp.get(i);
+			list.add(thisElement);
+		}
+		return list;
+	}//end of partition
+	
+	
+}
