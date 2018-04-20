@@ -1,0 +1,66 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class VocabCommon {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		System.out.println("This program compares the vocabulary ");
+		System.out.println("of two text files, reporting the number of words ");
+		System.out.println("in common and the percentage of overlap.");
+		System.out.println();
+		
+		
+		
+		Scanner in = new Scanner(new File("hamlet.txt"));
+		HashSet<String> hamlet = getSet(in);
+		in.close();
+		
+		Scanner in2 = new Scanner(new File("mobydick.txt"));
+		HashSet<String> moby = getSet(in2);
+		in2.close();
+		
+		HashSet<String> commonVocab = new HashSet<String>(hamlet);
+		commonVocab.retainAll(moby);
+		
+		
+		//file names
+		System.out.println("File 1 name? hamlet.txt");
+		System.out.println("File 2 name? mobydick.txt");
+		System.out.println();
+		
+		//file word counts
+		System.out.println("File 1 word count: " + hamlet.size());
+		System.out.println("File 2 word count: " + moby.size());
+		System.out.println();
+		
+		//combined vocabulary
+		System.out.println("Common Vocabulary: " + commonVocab.size());
+		System.out.println();
+		
+		//% of file in overlap
+		System.out.println("% of file 1 in overlap? " + ((commonVocab.size() * 100) / hamlet.size()));
+		System.out.println("% of file 2 in overlap? " + ((commonVocab.size() * 100) / moby.size()));
+
+			}
+	
+		
+	
+	
+	//read the text and return a set of words
+	private static HashSet<String> getSet(Scanner in){
+		HashSet<String> wordSet = new HashSet<String>();
+		
+		while(in.hasNext()){
+			String word = in.next().toLowerCase();
+			wordSet.add(word);
+			
+		}
+		
+		return wordSet;
+	}
+		
+	}//end of class
