@@ -1,0 +1,35 @@
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class Assignment_3 {
+
+	public static boolean isUnique (Map<String, String> map) {
+		
+		//instantiate a HashSet to call .contains against
+		Set<String> mapSet = new HashSet<String>();
+		
+		//iterate through key/value pairs in map, checking against mapSet
+		for(String k : map.keySet()) {
+			String v = map.get(k);
+			
+			
+			
+			
+			//check against mapSet, returning false if v is already an element
+			if(mapSet.contains(v))
+				return false;
+			
+			
+			//add v to mapSet for next iteration
+			mapSet.add(v);
+			
+			
+		}//end of for loop
+			
+		//one or fewer keys map to each value
+		return true;
+		
+	}//end of isUnique
+}//end of Assignment_3 class
