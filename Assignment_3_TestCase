@@ -1,0 +1,36 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+
+class Assignment_3_TestCase {
+
+	@Test
+	void test() {
+		//instantiate class object
+		Assignment_3 test = new Assignment_3();
+		
+		//instantiate map object, populate map object without duplicate values
+		Map<String,String> testMap = new HashMap<String,String>();
+		testMap.put("Joseph", "Smith");
+		testMap.put("Elvis", "Presley");
+		
+		
+		//boolean attempt = test.isUnique(testCase);
+		assertTrue(test.isUnique(testMap));
+		
+		//should print true
+		System.out.println(test.isUnique(testMap));
+		
+		//put duplicate value
+		testMap.put("John", "Smith");
+		
+		//should print false
+		System.out.println(test.isUnique(testMap));
+		assertFalse(test.isUnique(testMap));
+		
+	}//end of test
+
+}//end of Assignment_3_TestCase
