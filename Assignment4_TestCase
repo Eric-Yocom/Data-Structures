@@ -1,0 +1,29 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Assignment4Test {
+
+	@Test
+	void test() {
+		
+		Assignment4.writeSequence(8);
+		System.out.println("");
+		Assignment4.writeSequence(7);
+		System.out.println("");
+		Assignment4.writeSequence(6);
+		System.out.println("");
+		Assignment4.writeSequence(5);
+		
+	}
+
+}
+
+/* Expected Output (Success):
+
+4 3 2 1 1 2 3 4
+4 3 2 1 2 3 4
+3 2 1 1 2 3
+3 2 1 2 3
+
+*/
