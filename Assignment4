@@ -1,0 +1,44 @@
+/*Write a method called writeSequence that accepts an integer n as a parameter and prints
+ * to the console a symmetric sequence of n numbers composed of descending integers that 
+ * ends in 1, followed by a sequence of ascending integers that begins with 1. The following
+ * table indicates the output that should be produced for various values of n:
+ * 
+ * e.g. writeSequence(5); 3 2 1 2 3
+ * writeSequence(4); 2 1 1 2
+ * 
+ * Notice that when n is odd the sequence has a single 1 in the middle, whereas for even values
+ * it has two 1s in the middle. Your method should throw an IllegalArgumentException if it is passed
+ * a value less than 1.
+ * 
+ */
+
+
+public class Assignment4 {
+
+	public static void writeSequence(int n) {
+		//illegal argument
+		if (n < 1) 
+			throw new IllegalArgumentException();
+		
+		
+		
+		//base case n is 1
+		if (n == 1) {
+			System.out.print(n);
+		} 
+		
+		//base case n is 2
+		else if (n == 2) {
+			System.out.print(n/2 + " " + n/2);
+			
+		}//recursive case
+		else {
+			int current = (n+1) / 2;
+		      System.out.print(current + " ");
+		      writeSequence(n - 2);
+		      System.out.print(" " + current);
+		}//end of recursive case
+		
+	}//end of writeSequence
+	
+}//end of Assignment4 class
