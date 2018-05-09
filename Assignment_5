@@ -1,1 +1,30 @@
+/* Write a recursive method called writeChars that accepts an integer parameter n
+ * and that prints out a total of n characters. The middle character of the output 
+ * should always be an asterisk. If you are asked to write out an even number of characters,
+ * then there will be two asterisks in the middle. Before the asterisks you should write out
+ * less-than characters. After the asterisks you should write out greater-than characters.
+ */
+
+public class Assignment_5 {
+
+	
+	  public static void writeChars(int n) {
+		  	//base cases
+		  	if (n < 1)
+			  throw new IllegalArgumentException();
+		  	else if (n == 1)
+		      System.out.print("*");
+		    else if (n == 2)
+		      System.out.print("**");
+		    
+		    //recursive case
+		    else {
+		      System.out.print("<");
+		      writeChars(n - 2);
+		      System.out.print(">");
+		    }
+		    
+		  }//end of writeChars
+	
+}
 
