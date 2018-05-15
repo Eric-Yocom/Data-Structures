@@ -1,0 +1,11 @@
+4. This algorithm is of complexity class O(N), because it is a loop that runs N times where
+N is equal to the length of the array passed to the method. It performs 2 operations inside
+the loop so it's actually O(2N), but the important note is that it's running linearly.
+
+5. This algorithm is also linear, and for the same reason. O(N).
+
+6. This algorithm is O(N^2). The operations within the loop (remove/add) are O(N), and these 
+operations run N times.
+
+7. This algorithm is also O(N). The operations .get and .set only run once per call, and are only
+called for each iteration of the loop.
