@@ -1,0 +1,179 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+public class One {                                                                                   //this is problem #1
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Integer> test = new ArrayList<Integer>();
+		test.add(1);
+		test.add(2);
+		test.add(3);
+		test.add(3);
+		
+		System.out.println(test);
+		System.out.println("The mode occurs: " + maxOccurrences(test) + " times.");
+		
+	}
+
+	public static int maxOccurrences(List<Integer> list){
+		if (list.size() == 0){
+			return 0;
+		}
+		
+		Map<Integer, Integer> aux = new HashMap<Integer, Integer>();
+	
+		Iterator<Integer> i = list.iterator();
+
+		while (i.hasNext()){
+			Integer num = i.next();
+			if (aux.containsKey(num)){
+				int count = aux.get(num);
+				aux.put(num, count + 1);
+			} else {
+				aux.put(num,  1);
+			}
+		}
+		
+		//find key for max value
+		int maxValue = Collections.max(aux.values());
+		
+		return maxValue;	
+	}//end of maxOccurences
+}
+
+
+
+
+
+
+
+
+
+
+
+public class Two {                                                                              //this is problem #2
+
+	public static void main(String[] args) {
+		
+		//prints 6
+		System.out.println(mystery3(6));
+		
+		
+		//prints 8
+		System.out.println(mystery3(17));
+		
+
+	}
+
+	
+	public static int mystery3(int n) {
+		if (n < 0) {
+			return -mystery3(-n);
+			
+		} else if (n < 10) {
+			return n;
+		} else {
+			return mystery3(n / 10 + n % 10);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+public class Three {                                                                       //this is problem #3
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		//should return 3
+		System.out.println(digitMatch(1234, 5234));
+		
+		//should return 5
+		System.out.println(digitMatch(123467, 523467));
+		
+		//should return 1
+				System.out.println(digitMatch(1234, 5674));
+		
+	}
+	
+	
+	public static int digitMatch(int a, int b) {                
+	   
+		//parameters less than zero
+		if(a < 0 || b < 0)
+	        throw new IllegalArgumentException();
+	        
+		//base case, working with a number pair with single digits >= zero
+	    if(a < 10 || b < 10)
+	        return a % 10 == b % 10 ? 1 : 0;
+	        
+	    //recursive case, working with a number pair that has more than one digit >= zero.
+	    if(a % 10 == b % 10)
+	        return 1 + digitMatch(a/10, b/10);
+	        
+	    return digitMatch(a/10, b/10);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Four {                                                                                   //this is problem #4
+
+	int[] list = {-2, 8, 13, 22, 25, 25, 38, 42, 51, 103};
+	
+	//What Indexes will be examined as the middle element by a binary search for each of the following target values?
+	
+
+/*a. 103
+ * 1. index 4(25)
+ * 2. index 7(42)
+ * 3. index 8(51)
+ * 4. index 9(103)//in array
+ * 
+ * 
+ * b. 30
+ * 1. index 4(25)
+ * 2. index 7(42)
+ * 3. index 5(25)
+ * 4. index 6(38)//not in array
+ * 
+ * 
+ * c. 8
+ * 1. index 4(25)
+ * 2. index 1(8)//in array
+ * 
+ * 
+ * d. -1
+ * 1. index 4(25)
+ * 2. index 1(8)
+ * 3. index 0(-2)//not in array
+ */
+
+
+}
