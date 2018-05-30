@@ -1,1 +1,80 @@
 
+public class DescendingSelectionSort {
+	
+	public void descendingSelectionSort(int arr[])
+    {
+        int length = arr.length;
+ 
+        for (int i = 0; i < length-1; i++)
+        {
+            // Find the max element in unsorted array
+            int max = i;
+            for (int j = i+1; j < length; j++)
+                if (arr[j] > arr[max])
+                    max = j;
+ 
+            // Swap the found max element with the first
+            // element
+            int temp = arr[max];
+            arr[max] = arr[i];
+            arr[i] = temp;
+        }//end of for loop
+    }//end of method
+	
+}//end of DescendingSelectionSort class
+
+
+
+
+---------------------------------------------------------------------
+
+
+
+public class DescendingSelectionSort_Test {
+    
+	public static void main(String args[])
+    {
+        DescendingSelectionSort test = new DescendingSelectionSort();
+        int testArray[] = {15,5,17,8,92,54,34,1,93,7};
+        
+        
+        //test/print to console
+        System.out.println("Before:");
+        printArray(testArray);
+        test.descendingSelectionSort(testArray);
+        System.out.println("");
+        
+        System.out.println("After:");
+        printArray(testArray);
+    }//end of main
+
+	
+    public static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
+    }//end of printArray method
+}//end of test class
+
+
+
+
+---------------------------------------------------------------------
+
+
+/*
+This selection sort algorithm will not be faster than the original algorithm.
+It performs the same operations in the same order, and should take the same 
+amount of time for a given array.
+
+The complexity class of this algorithm remains O(N^2), because it iterates N
+times through an array of N elements.
+
+
+
+
+
+*/
+
