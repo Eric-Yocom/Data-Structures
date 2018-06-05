@@ -1,0 +1,118 @@
+import java.util.ArrayList;
+
+//Ch. 15, #1
+//write a method called lastIndexOf that accepts an integer as a parameter and returns
+//the index in the list of the last occurrence of that value, or -1 if the value is not 
+//found in the list.
+
+
+public class Assignment_8 {
+
+	public static void main(String[] args) {
+		int value = 5;
+		Assignment_8 arrayListIndex = new Assignment_8();
+		ArrayList list = arrayListIndex.getList();
+		
+		//print to console
+		System.out.println("Target value: " + value);
+		System.out.println("Elements in ArrayList: " + list.toString());
+		System.out.println();
+		System.out.println("Last index: " + arrayListIndex.lastIndexOf(list, value));
+
+	}//end of main
+	
+	//lastIndexOf method
+	public int lastIndexOf (ArrayList list, int value) {
+		return list.lastIndexOf(value);
+	}//end of lastIndexOf method
+	
+	
+	public ArrayList getList() {
+		ArrayList list = new ArrayList();
+		list.add(10);
+		list.add(5);
+		list.add(9);
+		list.add(21);
+		list.add(3);
+		list.add(10);
+		list.add(5);
+		return list;
+	}//end of getList method
+	
+
+}
+
+
+
+
+//----------------------------------------------------------------------
+
+
+
+
+
+//Ch. 15, #3
+//write a method called replaceAll that accepts two integer values
+//as parameters and replaces all occurrences of the first value in
+//the list with the second value.
+
+
+public class Assignment_8_3 {
+
+	public static void main(String[] args) {
+		int[] test = {10, 5, 3, 15, 7, 21, 21, 5, 13, 7, 5};
+		Assignment_8_3 testList = new Assignment_8_3();
+		for (int j : test) {
+			testList.add(j);
+		}//end of for loop
+		
+		System.out.println("Before: ");
+		testList.print();
+		System.out.println();
+		
+		System.out.println("After: ");
+		testList.replaceAll(5, 50);
+		testList.print();
+		
+
+	}//end of main
+
+	
+	private int[] testArray;
+	private int arraySize;
+	
+	public Assignment_8_3() {
+		testArray = new int[20];
+		arraySize = 0;
+	}//end of constructor
+	
+	public void add (int value) {
+		testArray[arraySize] = value;
+		arraySize = arraySize +1;
+	}//end of add method
+	
+	public void print () {
+		if (arraySize == 0) {
+			System.out.println("List is empty!");
+		} else {
+			System.out.print("{" + testArray[0]);
+			for (int i = 0; i < arraySize; i++) {
+				System.out.print(" " + testArray[i]);
+			}//end of for loop
+			System.out.print("]");
+		}//end of else branch
+	}//end of print method
+	
+	
+	
+	//REPLACEALL METHOD
+	public void replaceAll(int value, int replacement) {
+		for (int i = 0; i < arraySize; i++) {
+			if (testArray[i] == value) {
+				testArray[i] = replacement;
+			}//end of if
+		}//end of for loop
+	}//end of replaceAll
+
+	
+}//end of Assignment_8_3
